@@ -13,9 +13,9 @@ class TestBancoBrasil(BoletoTestCase):
         for i in range(3):
             d = BoletoBB(7, 1)
             d.carteira = '18'
-            d.data_documento = datetime.date(2011, 3, 8)
-            d.data_vencimento = datetime.date(2011, 3, 8)
-            d.data_processamento = datetime.date(2012, 7, 4)
+            d.data_documento = datetime.date(2026, 3, 8)
+            d.data_vencimento = datetime.date(2026, 3, 8)
+            d.data_processamento = datetime.date(2016, 7, 4)
             d.valor_documento = 2952.95
             d.agencia = '9999'
             d.conta = '99999'
@@ -26,12 +26,12 @@ class TestBancoBrasil(BoletoTestCase):
 
     def test_linha_digitavel(self):
         self.assertEqual(self.dados[0].linha_digitavel,
-            '00190.00009 07777.777009 00087.654182 6 49000000295295'
+            '00190.00009 07777.777009 00087.654182 7 13790000295295'
         )
 
     def test_codigo_de_barras(self):
         self.assertEqual(self.dados[0].barcode,
-            '00196490000002952950000007777777000008765418'
+            '00197137900002952950000007777777000008765418'
         )
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestBancoBrasil)

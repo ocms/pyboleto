@@ -24,11 +24,13 @@ def get_version(package):
 
 
 setup(
-    name='pyboleto',
+    name='pyboleto-quicksys',
     version=get_version('pyboleto'),
-    author='Eduardo Cereto Carvalho',
-    author_email='eduardocereto@gmail.com',
-    url='https://github.com/eduardocereto/pyboleto',
+    author='Orlando Cesar Martins',
+    author_email='ocmsilva@gmail.com',
+    url='https://github.com/ocms/pyboleto',
+    long_description_content_type="text/markdown",
+    long_description=read('README.rst'),
     packages=find_packages(),
     package_data={
         '': ['LICENSE'],
@@ -42,8 +44,7 @@ setup(
     license='BSD',
     description='Python Library to create "boletos de cobrança bancária" for \
     several Brazilian banks',
-    long_description=read('README.rst'),
-    download_url='http://pypi.python.org/pypi/pyboleto',
+    # download_url='http://pypi.python.org/pypi/pyboleto',
     scripts=[
         'bin/html_pyboleto_sample.py',
         'bin/pdf_pyboleto_sample.py'
@@ -56,10 +57,7 @@ setup(
         'Operating System :: OS Independent',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: Portuguese (Brazilian)',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 3.14',
         'Topic :: Office/Business :: Financial',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Framework :: Django',
@@ -67,8 +65,7 @@ setup(
     platforms='any',
     test_suite='tests.alltests.suite',
     install_requires=[
-        'distribute',
-        'reportlab'
+        'reportlab>=4.4.4',
     ],
     tests_require=[
         'pylint',

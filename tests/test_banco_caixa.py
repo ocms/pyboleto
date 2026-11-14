@@ -15,9 +15,9 @@ class TestBancoCaixa(BoletoTestCase):
             d.carteira = 'SR'
             d.agencia_cedente = '1565'
             d.conta_cedente = '87000000414'
-            d.data_vencimento = datetime.date(2012, 7, 8)
-            d.data_documento = datetime.date(2012, 7, 3)
-            d.data_processamento = datetime.date(2012, 7, 3)
+            d.data_vencimento = datetime.date(2026, 7, 8)
+            d.data_documento = datetime.date(2026, 7, 3)
+            d.data_processamento = datetime.date(2026, 7, 3)
             d.valor_documento = 2952.95
             d.nosso_numero = str(8019525086 + i)
             d.numero_documento = str(270319510 + i)
@@ -25,7 +25,7 @@ class TestBancoCaixa(BoletoTestCase):
 
     def test_linha_digitavel(self):
         self.assertEqual(self.dados[0].linha_digitavel,
-            '10498.01952 25086.156582 70000.004146 1 53880000295295'
+            '10498.01952 25086.156582 70000.004146 3 15010000295295'
         )
 
     def test_tamanho_codigo_de_barras(self):
@@ -33,7 +33,7 @@ class TestBancoCaixa(BoletoTestCase):
 
     def test_codigo_de_barras(self):
         self.assertEqual(self.dados[0].barcode,
-            '10491538800002952958019525086156587000000414'
+            '10493150100002952958019525086156587000000414'
         )
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestBancoCaixa)

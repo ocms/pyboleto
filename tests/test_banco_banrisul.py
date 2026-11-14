@@ -12,9 +12,9 @@ class TestBancoBanrisul(BoletoTestCase):
         self.dados = []
         for i in range(3):
             d = BoletoBanrisul()
-            d.data_documento = datetime.date(2000, 7, 4)
-            d.data_vencimento = datetime.date(2000, 7, 4)
-            d.data_processamento = datetime.date(2012, 7, 11)
+            d.data_documento = datetime.date(2026, 7, 4)
+            d.data_vencimento = datetime.date(2026, 7, 4)
+            d.data_processamento = datetime.date(2026, 7, 11)
             d.valor_documento = 550
             d.agencia_cedente = '1102'
             d.conta_cedente = '9000150'
@@ -26,7 +26,7 @@ class TestBancoBanrisul(BoletoTestCase):
     def test_linha_digitavel(self):
         self.assertEqual(
             self.dados[0].linha_digitavel,
-            '04192.11107 29000.150226 83256.340593 8 10010000055000'
+            '04192.11107 29000.150226 83256.340593 6 14970000055000'
         )
 
     def test_tamanho_codigo_de_barras(self):
@@ -34,7 +34,7 @@ class TestBancoBanrisul(BoletoTestCase):
 
     def test_codigo_de_barras(self):
         self.assertEqual(self.dados[0].barcode,
-                         '04198100100000550002111029000150228325634059')
+                         '04196149700000550002111029000150228325634059')
 
     def test_campo_livre(self):
         self.assertEqual(self.dados[0].campo_livre,

@@ -14,9 +14,9 @@ class TestBancoHsbcComRegistro(BoletoTestCase):
             d = BoletoHsbcComRegistro()
             d.agencia_cedente = '0141-4'
             d.conta_cedente = '5000252'
-            d.data_vencimento = datetime.date(2010, 11, 6)
-            d.data_documento = datetime.date(2010, 11, 6)
-            d.data_processamento = datetime.date(2010, 11, 6)
+            d.data_vencimento = datetime.date(2026, 11, 6)
+            d.data_documento = datetime.date(2026, 11, 6)
+            d.data_processamento = datetime.date(2026, 11, 6)
             d.valor_documento = 335.85
             d.nosso_numero = str(1716057195 + i)
             d.numero_documento = str(1716057195 + i)
@@ -24,12 +24,12 @@ class TestBancoHsbcComRegistro(BoletoTestCase):
 
     def test_linha_digitavel(self):
         self.assertEqual(self.dados[0].linha_digitavel,
-            '39991.71600 57195.001417 50002.520018 1 47780000033585'
+            '39991.71600 57195.001417 50002.520018 4 16220000033585'
         )
 
     def test_codigo_de_barras(self):
         self.assertEqual(self.dados[0].barcode,
-            '39991477800000335851716057195001415000252001'
+            '39994162200000335851716057195001415000252001'
         )
 
     def test_agencia(self):

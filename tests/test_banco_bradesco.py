@@ -15,9 +15,9 @@ class TestBancoBradesco(BoletoTestCase):
             d.carteira = '06'
             d.agencia_cedente = '278-0'
             d.conta_cedente = '039232-4'
-            d.data_vencimento = datetime.date(2011, 2, 5)
-            d.data_documento = datetime.date(2011, 1, 18)
-            d.data_processamento = datetime.date(2011, 1, 18)
+            d.data_vencimento = datetime.date(2026, 2, 5)
+            d.data_documento = datetime.date(2026, 1, 18)
+            d.data_processamento = datetime.date(2026, 1, 18)
             d.valor_documento = 8280.00
             d.nosso_numero = str(2125525 + i)
             d.numero_documento = str(2125525 + i)
@@ -25,12 +25,12 @@ class TestBancoBradesco(BoletoTestCase):
 
     def test_linha_digitavel(self):
         self.assertEqual(self.dados[0].linha_digitavel,
-            '23790.27804 60000.212559 25003.923205 4 48690000828000'
+            '23790.27804 60000.212559 25003.923205 3 13480000828000'
         )
 
     def test_codigo_de_barras(self):
         self.assertEqual(self.dados[0].barcode,
-            '23794486900008280000278060000212552500392320'
+            '23793134800008280000278060000212552500392320'
         )
 
     def test_agencia(self):

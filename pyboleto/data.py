@@ -210,7 +210,7 @@ class BoletoData(object):
                      len(value)))
 
         due_date_days = (self.data_vencimento - _EPOCH).days
-        
+
         if not (9999 >= due_date_days >= 1000):
             raise TypeError("Data Inválida, deve estar entre 22/02/2025 e 13/10/2049")
         

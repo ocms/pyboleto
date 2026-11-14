@@ -156,13 +156,18 @@ def pdftoxml(filename, output):
 
 
 class BoletoTestCase(unittest.TestCase):
+
     def _get_expected(self, bank, generated):
-        fname = os.path.join(os.path.dirname(pyboleto.__file__),
-                             "..", "tests", "xml", bank + '-expected.xml')
+        fname = os.path.join(
+            os.path.dirname(pyboleto.__file__),
+            "..", "tests", "xml", bank + '-expected.xml'
+        )
+
         if not os.path.exists(fname):
-            with open(fname, 'wb') as f:
-                with open(generated) as g:
+            with open(generated, 'rb') as g:
+                with open(fname, 'wb') as f:
                     f.write(g.read())
+
         return fname
 
     def test_pdf_triplo_rendering(self):
@@ -196,7 +201,9 @@ class BoletoTestCase(unittest.TestCase):
 
         generated = filename + '.xml'
         pdftoxml(filename, generated)
+        
         expected = self._get_expected(bank, generated)
+        
         diff = diff_pdf_htmls(expected, generated)
         if diff:
             self.fail("Error while checking xml for %r:\n%s" % (
